@@ -33,6 +33,10 @@ async function sauceDemoLoginTest(){
 
         //CLick Cart Button
         await driver.findElement(By.xpath("//div[@id='shopping_cart_container']/a[1]")).click();
+
+        //Memastikan kita di page Add to Cart
+        let titleText2 = await driver.findElement(By.xpath("//span[@class='title']")).getText();
+        assert.strictEqual(titleText2.includes('Your Cart'), true, "Title does not include 'Your Cart'");
  
     } finally {
         await driver.quit();
