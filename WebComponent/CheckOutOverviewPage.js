@@ -1,11 +1,10 @@
 const { By } = require('selenium-webdriver');
 
-class LoginPage {
+class CheckOutOverviewPage {
     constructor(driver){
         this.driver = driver;
-        this.usernameInput = By.id('user-name');
-        this.passwordInput = By.css('input[placeholder="Password"]');
-        this.loginButton = By.xpath("//input[@id='login-button']");
+        
+        this.finishButton = By.xpath("//button[@id='finish']");
         this.errorMessage = By.css('.error-message-container');
     }
 
@@ -13,10 +12,8 @@ class LoginPage {
         await this.driver.get(browser);
     }
 
-    async login(username, password){
-        await this.driver.findElement(this.usernameInput).sendKeys(username);
-        await this.driver.findElement(this.passwordInput).sendKeys(password);
-        await this.driver.findElement(this.loginButton).click();
+    async checkoutFinish(){
+        await this.driver.findElement(this.finishButton).click();
     }
 
     async getErrorMessage() {
@@ -29,4 +26,4 @@ class LoginPage {
     }
 }
 
-module.exports = LoginPage;
+module.exports = CheckOutOverviewPage;

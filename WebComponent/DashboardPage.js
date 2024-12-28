@@ -10,6 +10,11 @@ class DashboardPage {
         return title.getText();
     }
 
+    async isOnBody(){
+        const title = await this.driver.findElement(By.className('complete-header'));
+        return title.getText();
+    }
+
 }
 
 module.exports = DashboardPage;

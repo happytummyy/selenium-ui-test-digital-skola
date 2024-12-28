@@ -13,6 +13,9 @@ class CartPage {
 
         //CLick Cart Button
         this.cartButton = By.xpath("//div[@id='shopping_cart_container']/a[1]");
+
+        //Click Checkout Button
+        this.checkoutButton = By.xpath("//button[@id='checkout']");
     }
 
     async addToCart(){
@@ -24,6 +27,10 @@ class CartPage {
         await this.driver.findElement(this.addItem6).click();
 
         await this.driver.findElement(this.cartButton).click();
+    }
+
+    async checkOut(){
+        await this.driver.findElement(this.checkoutButton).click();
     }
 
     async getErrorMessage() {
